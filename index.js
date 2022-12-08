@@ -4,7 +4,6 @@ const lowDb = require("lowdb");
 const routes = require("./src/routers/language_routes.js");
 const app = express();
 const server = require("http").Server(app);
-const PORT = 5000;
 
 const modules = Object.keys(routes);
 
@@ -21,6 +20,8 @@ app.get("/", (req, res) => {
   );
 });
 
-server.listen(process.env.PORT, () => {
+const PORT = process.env.PORT || 5000;
+
+server.listen(PORT, () => {
   console.log(`Backend is running on http://localhost:${PORT}`);
 });
